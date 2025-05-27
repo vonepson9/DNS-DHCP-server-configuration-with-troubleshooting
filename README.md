@@ -13,3 +13,8 @@ https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=shari
 - 🔁 **Reverse Lookup Zone**  
 - 📡 **DHCP Server Configuration + Scope Setup**  
 - 🛠️ **Troubleshooting (DNS/DHCP)**
+
+## 📚 Why This Matters
+
+Mastering foundational services like DNS and DHCP is essential for any aspiring cybersecurity or cloud professional.  
+This lab gave me hands-on experience in configuring and troubleshooting core network components — skills that are critical for real-world IT environments.
