@@ -11,5 +11,5 @@ https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=shari
 - 🧱 **AD DS Setup & Domain Controller**  
 - 🧭 **DNS Server Configuration**  
 - 🔁 **Reverse Lookup Zone**  
-- 📡 **DHCP Server + Scope Setup**  
+- 📡 **DHCP Server Configuration + Scope Setup**  
 - 🛠️ **Troubleshooting (DNS/DHCP)**
