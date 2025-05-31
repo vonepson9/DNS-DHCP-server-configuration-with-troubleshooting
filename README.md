@@ -36,7 +36,7 @@ This project walks through the process of:
 
 Foundational services like **DNS** and **DHCP** are the *heart* of network infrastructure. Whether you're diving into cybersecurity or chasing cloud dominance, these skills are non-negotiable.
 
-This lab gave me real-world experience configuring and fixing these services — because reading the book is one thing, but watching that DNS service crash mid-test? Different story. 😮‍💨💻
+This lab gave me real-world experience configuring and fixing these services, because reading the book is one thing, but watching that DNS service crash mid-test? Different story. 😮‍💨💻
 
 ---
 
@@ -164,5 +164,5 @@ ipconfig /release
 ipconfig /renew
 ```
 
-Then verify by pingin
+Then verify by pinging the DHCP gateway as a cherry on top
 
