@@ -1,88 +1,79 @@
-# 🔧 DNS-DHCP Server Configuration with Troubleshooting
+# 🔧 DNS & DHCP Server Configuration Lab with Troubleshooting  
+> Full setup of DNS via AD DS, DHCP server/scope creation, and step-by-step troubleshooting  
 
-In this lab, I configured DNS using **Active Directory Domain Services (AD DS)** and set up a **DHCP server**. I also created a DNS reverse lookup zone, configured a DHCP scope, and performed troubleshooting for both DNS and DHCP services to ensure everything ran smoothly like butter on a warm biscuit. 🧈🧠
-
----
-
-## 🌐 DNS & DHCP Lab Setup ⚙️
-
-This project walks through the process of:
-
-- Configuring a DNS server via AD DS  
-- Creating a reverse lookup zone  
-- Setting up a DHCP server and scope  
-- Troubleshooting DNS and DHCP  
-- Making sure your network isn’t running on duct tape and prayers 🙏
+## 🎥 Video Walkthrough  
+- 📺 [**Watch DNS/DHCP Lab in Action**](https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=sharing)
 
 ---
 
-## 🎥 Video Walkthrough
-
-📺 [Click here to watch the lab in action](https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=sharing)
-
----
-
-## 🔧 What’s Inside
-
-- 🧱 AD DS Setup & Domain Controller  
-- 🧭 DNS Server Configuration  
-- 🔁 Reverse Lookup Zone  
-- 📡 DHCP Server Configuration + Scope Setup  
-- 🛠️ DNS/DHCP Troubleshooting Techniques  
+![OS](https://img.shields.io/badge/Windows_Server_2022-blue?logo=windows&logoColor=white)
+![Tools](https://img.shields.io/badge/AD_DS-grey?logo=microsoft&logoColor=white)
+![Tools](https://img.shields.io/badge/DNS_Server-blue?logo=windows&logoColor=white)
+![Tools](https://img.shields.io/badge/Reverse_Lookup_Zone-yellow?logo=windows&logoColor=black)
+![Tools](https://img.shields.io/badge/DHCP_Server-orange?logo=microsoft&logoColor=white)
+![Tools](https://img.shields.io/badge/DNS_Troubleshooting-red?logo=powershell&logoColor=white)
+![Tools](https://img.shields.io/badge/DHCP_Troubleshooting-green?logo=windows&logoColor=white)
 
 ---
 
-## 📚 Why This Matters
+## 🔧 What’s Inside  
 
-Foundational services like **DNS** and **DHCP** are the *heart* of network infrastructure. Whether you're diving into cybersecurity or chasing cloud dominance, these skills are non-negotiable.
+- 🧱 **AD DS Setup & Domain Controller Promotion**  
+- 🧭 **DNS Server Configuration**  
+- 🔁 **Reverse Lookup Zone Creation**  
+- 📡 **DHCP Server Setup + Scope Configuration**  
+- 🛠️ **Troubleshooting for DNS and DHCP Services**
 
-This lab gave me real-world experience configuring and fixing these services, because reading the book is one thing, but watching that DNS service crash mid-test? Different story. 😮‍💨💻
+---
+
+## 💼 Lab Overview
+
+This lab demonstrates how to properly configure core network services in a Windows Server environment. It walks through the complete setup and validation of a DNS server, reverse lookup zone, and DHCP scope, followed by practical troubleshooting methods for resolving common issues. These are foundational skills essential for both system administration and cybersecurity roles.
 
 ---
 
 ## 🧩 Step-by-Step Configuration Guide
 
-### ✅ Step 1: Configure AD DS and Promote to Domain Controller
+### ✅ Step 1: AD DS Installation and Domain Controller Setup
 
 - Install the **Active Directory Domain Services** role  
-- Promote your server to a **Domain Controller**  
-- Restart when prompted  
+- Promote the server to a **Domain Controller**  
+- Reboot as needed
 
 ---
 
-### 🔁 Step 2: Create a DNS Reverse Lookup Zone
+### 🔁 Step 2: DNS Reverse Lookup Zone
 
-- Open **DNS Manager**  
-- Right-click **Reverse Lookup Zones** > **New Zone**  
-- Select **Primary Zone**  
-- Enter the first three octets of your network IP (e.g., `192.168.1`)  
-- Complete the wizard to finish the zone creation  
-
----
-
-### 📌 Step 3: Enable Automatic PTR Record Creation
-
-- In **DNS Manager**, right-click the **Domain Controller name**  
-- Click **Properties**  
-- Check the box for **“Enable automatic PTR record creation”**  
+- Launch **DNS Manager**  
+- Right-click **Reverse Lookup Zones** → **New Zone**  
+- Choose **Primary Zone** → Enter network prefix (e.g., `192.168.1`)  
+- Complete the wizard to finalize setup
 
 ---
 
-### 📡 Step 4: Configure DHCP Server + Scope
+### 📌 Step 3: Enable PTR Record Creation
+
+- In **DNS Manager**, right-click the **Server Name**  
+- Go to **Properties**  
+- Check **Enable automatic PTR record creation**
+
+---
+
+### 📡 Step 4: DHCP Configuration & Scope Setup
 
 - Install the **DHCP Server** role  
-- Open the **DHCP Management Console**  
+- Open **DHCP Management Console**  
 - Create a **New Scope**:
-  - Set IP range (e.g., `192.168.1.100 - 192.168.1.200`)
-  - Add Exclusions (e.g., `192.168.1.110 - 192.168.1.115`)
-  - Configure lease duration, router, and DNS options  
-- **Activate** the scope  
+  - IP Range: `192.168.1.100 – 192.168.1.200`  
+  - Exclusions: `192.168.1.110 – 192.168.1.115`  
+  - Configure router (default gateway), DNS server IP, and lease time  
+  - Activate the scope
 
 ---
 
-## 🛠️ Step 5: Troubleshooting DNS Issues
+## 🛠️ DNS Troubleshooting
 
-### 🔍 Basic Checks
+### 🔍 Verify Settings
 
 ```bash
 ipconfig /all
@@ -91,78 +82,40 @@ ping 8.8.8.8
 ping google.com
 ```
 
-- If `ping 8.8.8.8` works but `ping google.com` fails → **DNS problem confirmed**
+### 🔧 Common Fixes
 
----
-
-### 🔧 Fixes
-
-- **Firewall**: Ensure **Port 53** (DNS) isn’t blocked  
-- **IPv4 Settings**:
-  - Set DNS to **Obtain automatically**, or
-  - Use:
-    - `127.0.0.1` (loopback) for internal DNS
-    - Local DNS server IP
-    - `8.8.8.8` (Google public DNS for test)
-
-- **Services App**:
-  - Make sure **DNS Server** service is **Running** and **Automatic**
-
-- **DNS Forwarders**:
-  - In **DNS Manager**, set forwarders to:
-    - `8.8.8.8`
-    - `8.8.4.4`
-
-- Refresh DNS settings:
+- **Firewall**: Port 53 (DNS) must be open  
+- **IPv4 Config**: Use loopback (`127.0.0.1`) or internal DNS server IP  
+- **DNS Service**: Ensure **DNS Server** is **Running** and **Automatic**  
+- **DNS Forwarders**: Add `8.8.8.8` and `8.8.4.4` in DNS Manager  
 
 ```bash
 ipconfig /flushdns
 ipconfig /registerdns
 ```
 
-Then re-test with:
-
-```bash
-ping google.com
-nslookup google.com
-```
-
 ---
 
-## 🧪 Step 6: Troubleshooting DHCP Issues
+## 🧪 DHCP Troubleshooting
 
-### 🔍 Basic Checks
+### 🔍 Verify IP Assignment
 
 ```bash
 ipconfig /all
 ```
 
-- Confirm **DHCP Enabled = Yes**
-- If your IP starts with `169.x.x.x` (APIPA), that means DHCP failed 😬
-
-Run:
-
-```bash
-ipconfig /release
-ipconfig /renew
-```
-
----
+- Check if **DHCP Enabled = Yes**  
+- If IP is `169.x.x.x` → DHCP not working
 
 ### 🔧 Fixes
 
-- **IPv4 Settings**: Ensure it's set to **Obtain IP address automatically**
-- **Services App**:
-  - Ensure both **DHCP Server** and **DHCP Client** services are **Running** and **Automatic**
-- **Firewall**:
-  - Make sure **Ports 67 and 68** (DHCP) aren’t blocked
-
-After changes, run:
+- Ensure adapter is set to **Obtain IP Automatically**  
+- Start **DHCP Client** and **DHCP Server** services  
+- Open firewall ports **67** and **68**
 
 ```bash
 ipconfig /release
 ipconfig /renew
 ```
 
-Then verify by pinging the DHCP gateway as a cherry on top
-
+Then verify by pinging the DHCP gateway as a cherry on top 🍒
