@@ -1,8 +1,8 @@
-# 🔧 DNS & DHCP Server Configuration Lab with Troubleshooting  
+#  DNS & DHCP Server Configuration Lab with Troubleshooting  
 > Full setup of DNS via AD DS, DHCP server/scope creation, and step-by-step troubleshooting  
 
-## 🎥 Video Walkthrough  
-- 📺 [**Watch DNS/DHCP Lab in Action**](https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=sharing)
+##  Video Walkthrough  
+-  [**Watch DNS/DHCP Lab in Action**](https://drive.google.com/file/d/1CccqnvOKeAjWPxsRc6aCztyR5D-ZHB56/view?usp=sharing)
 
 ---
 
@@ -16,25 +16,25 @@
 
 ---
 
-## 🔧 What’s Inside  
+##  What’s Inside  
 
-- 🧱 **AD DS Setup & Domain Controller Promotion**  
-- 🧭 **DNS Server Configuration**  
-- 🔁 **Reverse Lookup Zone Creation**  
-- 📡 **DHCP Server Setup + Scope Configuration**  
-- 🛠️ **Troubleshooting for DNS and DHCP Services**
+-  **AD DS Setup & Domain Controller Promotion**  
+-  **DNS Server Configuration**  
+-  **Reverse Lookup Zone Creation**  
+-  **DHCP Server Setup + Scope Configuration**  
+-  **Troubleshooting for DNS and DHCP Services**
 
 ---
 
-## 💼 Lab Overview
+##  Lab Overview
 
 This lab demonstrates how to properly configure core network services in a Windows Server environment. It walks through the complete setup and validation of a DNS server, reverse lookup zone, and DHCP scope, followed by practical troubleshooting methods for resolving common issues. These are foundational skills essential for both system administration and cybersecurity roles.
 
 ---
 
-## 🧩 Step-by-Step Configuration Guide
+##  Step-by-Step Configuration Guide
 
-### ✅ Step 1: AD DS Installation and Domain Controller Setup
+###  Step 1: AD DS Installation and Domain Controller Setup
 
 - Install the **Active Directory Domain Services** role  
 - Promote the server to a **Domain Controller**  
@@ -42,7 +42,7 @@ This lab demonstrates how to properly configure core network services in a Windo
 
 ---
 
-### 🔁 Step 2: DNS Reverse Lookup Zone
+###  Step 2: DNS Reverse Lookup Zone
 
 - Launch **DNS Manager**  
 - Right-click **Reverse Lookup Zones** → **New Zone**  
@@ -51,7 +51,7 @@ This lab demonstrates how to properly configure core network services in a Windo
 
 ---
 
-### 📌 Step 3: Enable PTR Record Creation
+###  Step 3: Enable PTR Record Creation
 
 - In **DNS Manager**, right-click the **Server Name**  
 - Go to **Properties**  
@@ -59,7 +59,7 @@ This lab demonstrates how to properly configure core network services in a Windo
 
 ---
 
-### 📡 Step 4: DHCP Configuration & Scope Setup
+###  Step 4: DHCP Configuration & Scope Setup
 
 - Install the **DHCP Server** role  
 - Open **DHCP Management Console**  
@@ -71,9 +71,9 @@ This lab demonstrates how to properly configure core network services in a Windo
 
 ---
 
-## 🛠️ DNS Troubleshooting
+##  DNS Troubleshooting
 
-### 🔍 Verify Settings
+###  Verify Settings
 
 ```bash
 ipconfig /all
@@ -82,7 +82,7 @@ ping 8.8.8.8
 ping google.com
 ```
 
-### 🔧 Common Fixes
+###  Common Fixes
 
 - **Firewall**: Port 53 (DNS) must be open  
 - **IPv4 Config**: Use loopback (`127.0.0.1`) or internal DNS server IP  
@@ -96,9 +96,9 @@ ipconfig /registerdns
 
 ---
 
-## 🧪 DHCP Troubleshooting
+##  DHCP Troubleshooting
 
-### 🔍 Verify IP Assignment
+###  Verify IP Assignment
 
 ```bash
 ipconfig /all
@@ -107,7 +107,7 @@ ipconfig /all
 - Check if **DHCP Enabled = Yes**  
 - If IP is `169.x.x.x` → DHCP not working
 
-### 🔧 Fixes
+###  Fixes
 
 - Ensure adapter is set to **Obtain IP Automatically**  
 - Start **DHCP Client** and **DHCP Server** services  
@@ -118,4 +118,4 @@ ipconfig /release
 ipconfig /renew
 ```
 
-Then verify by pinging the DHCP gateway as a cherry on top 🍒
+Then verify by pinging the DHCP gateway as a cherry on top 
